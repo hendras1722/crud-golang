@@ -19,6 +19,7 @@ func main() {
 	routes.AuthRoute(router)
 	routes.UserRoute(router)
 	routes.ProductRoute(router)
+	routes.GetImage(router)
 
 	configs.DB.AutoMigrate(&models.Product{})
 
