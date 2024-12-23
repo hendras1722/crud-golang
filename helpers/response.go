@@ -40,7 +40,7 @@ func Response(w http.ResponseWriter, code int, message string, payload interface
 		}
 	}
 
-	res, _ := json.Marshal(response)
+	res, _ := json.MarshalIndent(response, "", "  ")
 
 	w.Write(res)
 }

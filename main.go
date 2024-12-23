@@ -2,6 +2,7 @@ package main
 
 import (
 	"go-jwt/configs"
+	"go-jwt/models"
 	"go-jwt/routes"
 	"log"
 	"net/http"
@@ -17,6 +18,9 @@ func main() {
 
 	routes.AuthRoute(router)
 	routes.UserRoute(router)
+	routes.ProductRoute(router)
+
+	configs.DB.AutoMigrate(&models.Product{})
 
 	log.Println("Server running on port 8080")
 	http.ListenAndServe(":8080", router)
